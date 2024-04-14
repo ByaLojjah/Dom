@@ -1,0 +1,27 @@
+.cart {
+    font-family: Arial, sans-serif;
+}
+
+.item {
+    margin-bottom: 10px;
+}
+
+.quantity-btn {
+    background-color: #ccc;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.delete-btn,
+.like-btn {
+    background-color: #ff5c5c;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.total {
+    margin-top: 20px;
+}
