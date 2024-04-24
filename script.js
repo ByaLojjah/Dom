@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+
     const articles = document.querySelectorAll('.article');
     let grandTotal = calculateInitialGrandTotal();
 
@@ -33,21 +34,39 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         deleteBtn.addEventListener('click', function () {
-            let montant = article.querySelector('.Total')
-            article.remove();
-            updateTotalPrice(montant);
+            let montantRemoveArticle = article.querySelector('.Total').textContent // Recuperation du montant total du profuit supprime
+            montantRemoveArticle = parseFloat(montantRemoveArticle) // Conversion du la valeurtexte recuprer en valeur numerique pour le calcul
+            article.remove(); // Suppression du produit dans le panier
+            updateValueCart(montantRemoveArticle); // Mise a jour du montant du panier avec soustraction du montant total du produit  
         });
 
+        /**
+         * Fonction de mise a jour de la valeur du panier apres suppressiond d'un produit 
+         * 
+         * 
+         */
+        function updateValueCart(montantRemoveArticle) {
+            let articleTotalPrice = quantity * price; // Calcul du montant du panier actuel
+            articleTotalPrice -= montantRemoveArticle // Soustraction du montant du produit supprime du pamier
+            totalElement.textContent = articleTotalPrice.toFixed(1); // Mise a jour du montant du panier
+            calculateGrandTotal();
+        }
+        
         function updateTotalPrice() {
             const articleTotalPrice = quantity * price;
             totalElement.textContent = articleTotalPrice.toFixed(1);
             calculateGrandTotal();
         }
 
-        function updateTotalPrice(update) {
-            let articleTotalPrice = quantity * price;
-            articleTotalPrice -= update;
-            totalElement.textContent = articleTotalPrice.toFixed(1);
+        /**
+         * Fonction de mise a jour de la valeur du panier apres suppressiond d'un produit 
+         * 
+         * 
+         */
+        function updateValueCart(montantRemoveArticle) {
+            let articleTotalPrice = quantity * price; // Calcul du montant du panier actuel
+            articleTotalPrice -= montantRemoveArticle // Soustraction du montant du produit supprime du pamier
+            totalElement.textContent = articleTotalPrice.toFixed(1); // Mise a jour du montant du panier
             calculateGrandTotal();
         }
 
@@ -58,8 +77,6 @@ document.addEventListener('DOMContentLoaded', function () {
             else {
                 likeBtn.style.color = 'red';
             }
-
-
         });
     });
 
@@ -80,6 +97,4 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         return initialGrandTotal;
     }
-
-
 });
