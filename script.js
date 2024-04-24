@@ -1,6 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
     const articles = document.querySelectorAll('.article');
-    let grandTotal = 0;
+    let grandTotal = calculateInitialGrandTotal(); 
+
+    
+    const grandTotalElement = document.querySelector('.totalprice span:last-child');
+    grandTotalElement.textContent = grandTotal.toFixed(1);
 
     articles.forEach(article => {
         const minusBtn = article.querySelector('.buttonminus-btn');
@@ -48,9 +52,17 @@ document.addEventListener('DOMContentLoaded', function () {
         grandTotal = 0;
         articles.forEach(article => {
             const totalElement = article.querySelector('.Total');
-            grandTotal += parseFloat(totalElement.textContent);
+            grandTotal += parseFloat(totalElement.textContent); 
         });
-        const grandTotalElement = document.querySelector('.totalprice span:last-child');
         grandTotalElement.textContent = grandTotal.toFixed(1);
+    }
+
+    function calculateInitialGrandTotal() {
+        let initialGrandTotal = 0;
+        articles.forEach(article => {
+            const totalElement = article.querySelector('.Total');
+            initialGrandTotal += parseFloat(totalElement.textContent); 
+        });
+        return initialGrandTotal;
     }
 });
