@@ -9,56 +9,62 @@
 </head>
 
 <body>
-    <div>
-        <div>
-            <div>
-                <table border="1">
-                    <thead>
-                        <tr>
-                            <th scope="col">DESIGNATION</th>
-                            <th scope="col">QUANTITE</th>
-                            <th scope="col">PRIX</th>
-                            <th scope="col">TOTAL</th>
-                            <th>&nbsp;</th>
-                        </tr>
-                    </thead>
-                    <TBody>
-                        <tr>
-                            <th scope="row">
-                                <div>
-                                    <img src="" alt="">
-                                </div>
-                                <div>
-                                    <span>Nom du produit</span>
-                                    <span>nom de la marque</span>
-                                    <button>Supprimer</button>
-                                </div>
-                            </th>
-                            <th>
-                                <div>
-                                    <button>-</button>
-                                    <span>1</span>
-                                    <button>+</button>
-                                </div>
-                            </th>
-                            <th scope="row">
-                                <span>200</span>
-                            </th>
-                            <th scope="row">
-                                <span>400</span>
-                            </th>
-                            <th scope="row">
-                                <button>&nbsp;</button>
-                            </th>
-                        </tr>
-                    </TBody>
-                </table>
-            </div>
+    <div class="container">
+        <div><span class="titre">SHOPPING CART</span></div>
+        <!--Article 1-->
+        <div class="article">
+            <img src="Images/fluid.webp" alt="" height="140px" width="150px">
+                <div id="button">
+                    <span class="name">Fluid</span> 
+                    <button class="buttonminus-btn">-</button>
+                    <span class="quantity-btn">1</span>
+                    <button class="buttonplus-btn"> + </button>
+                    <span class="price"> 25000 XOF</span>
+                    <button class="delete-btn">Supprimer</button>
+                    <button class="like-Btn">&#10084;</button>
+                    <span class="Total">0 XOF</span>
+                </div>
+                
+                  
+                
+        </div>
+        <!--Article 2-->
+        <div class="article">
+            <img src="Images/milk1.webp" alt=""  height="140px" width="150px">
+                <div id="button"> 
+                    <span class="name">Milk</span>
+                    <button class="buttonminus-btn">-</button>
+                    <span class="quantity-btn">1</span>
+                    <button class="buttonplus-btn"> + </button>
+                    <span class="price"> 15000 XOF</span>
+                    <button class="delete-btn">Supprimer</button>
+                    <button class="like-Btn">&#10084;</button>
+                    <span class="Total">0 XOF</span>
+                </div>
+             
+        </div>
+        <!--Article 3-->
+        <div class="article">
+            <img src="Images/Lip1.webp" alt="" height="140px" width="150px">
+                <div id="button"> 
+                    <span class="name">Lip</span>
+                    <button class="buttonminus-btn">-</button>
+                    <span class="quantity-btn">1</span>
+                    <button class="buttonplus-btn"> + </button>
+                    <span class="price"> 15000 XOF</span>
+                    <button class="delete-btn">Supprimer</button>
+                    <button class="like-Btn">&#10084;</button>
+                    <span class="Total">0 XOF</span>
+                </div>
         </div>
     </div>
-    <div>
-        <div></div>
+    <div class="totalprice">
+        <span>Prix Total</span>
+        <span>0</span>
     </div>
+    
+  
+    
     <script src="script.js"></script>
 </body>
 
