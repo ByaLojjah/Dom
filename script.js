@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
     const articles = document.querySelectorAll('.article');
-    let grandTotal = calculateInitialGrandTotal(); 
+    let grandTotal = calculateInitialGrandTotal();
 
-    
+
     const grandTotalElement = document.querySelector('.totalprice span:last-child');
     grandTotalElement.textContent = grandTotal.toFixed(1);
 
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const deleteBtn = article.querySelector('.delete-btn');
 
         let quantity = parseFloat(quantityElement.textContent);
-        let price = parseFloat(priceElement.textContent); 
+        let price = parseFloat(priceElement.textContent);
 
         plusBtn.addEventListener('click', function () {
             quantity++;
@@ -33,18 +33,33 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         deleteBtn.addEventListener('click', function () {
+            let montant = article.querySelector('.Total')
             article.remove();
-            updateTotalPrice();
+            updateTotalPrice(montant);
         });
 
         function updateTotalPrice() {
-            const articleTotalPrice = quantity * price; 
+            const articleTotalPrice = quantity * price;
+            totalElement.textContent = articleTotalPrice.toFixed(1);
+            calculateGrandTotal();
+        }
+
+        function updateTotalPrice(update) {
+            let articleTotalPrice = quantity * price;
+            articleTotalPrice -= update;
             totalElement.textContent = articleTotalPrice.toFixed(1);
             calculateGrandTotal();
         }
 
         likeBtn.addEventListener('click', function () {
-            likeBtn.style.color = 'red';
+            if (likeBtn.style.color == 'red') {
+                likeBtn.style.color = 'black';
+            }
+            else {
+                likeBtn.style.color = 'red';
+            }
+
+
         });
     });
 
@@ -52,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
         grandTotal = 0;
         articles.forEach(article => {
             const totalElement = article.querySelector('.Total');
-            grandTotal += parseFloat(totalElement.textContent); 
+            grandTotal += parseFloat(totalElement.textContent);
         });
         grandTotalElement.textContent = grandTotal.toFixed(1);
     }
@@ -61,8 +76,10 @@ document.addEventListener('DOMContentLoaded', function () {
         let initialGrandTotal = 0;
         articles.forEach(article => {
             const totalElement = article.querySelector('.Total');
-            initialGrandTotal += parseFloat(totalElement.textContent); 
+            initialGrandTotal += parseFloat(totalElement.textContent);
         });
         return initialGrandTotal;
     }
+
+
 });
